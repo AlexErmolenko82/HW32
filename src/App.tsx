@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from "react";
+import Title from "./components/Title";
+
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [open, isOpenedTitle] = useState(false);
+
+  const handleOpen = () => {
+    isOpenedTitle(true);
+  };
+  
+  const handleClose = () => {
+    isOpenedTitle(false);
+  };
+
+  if (open === true)   
+      return (
+        <div>
+        <button onClick={handleClose}>Close title!</button>
+        <Title name = "Application normalType" type = "normal"/>
+        <Title name = "Application boldType" type = "bold"/>
+        </div>
+      );
+    else
+      return (
+        <div>
+        <button onClick={handleOpen}>Open title!</button>
+        </div>
+      );
 }
 
-export default App;
+export default App; 
