@@ -4,7 +4,7 @@ import Title from "./components/Title";
 import './App.css';
 
 function App() {
-  const [open, isOpenedTitle] = useState(false);
+  const [open, isOpenedTitle] = useState<boolean>(false);
 
   const handleOpen = () => {
     isOpenedTitle(true);
